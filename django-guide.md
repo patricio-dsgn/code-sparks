@@ -1,114 +1,115 @@
 # Guia - Django
 
-## CREAR ENTORNO VIRTUAL
+## crear entorno virtual
 
+```console
+pip3 install pipenv       # instala pipenv
+pipenv shell              # crea o activa un entorno virtual con pipenv
+exit                      # salir de virtual pipenv
 
-`pip3 install pipenv` instala pipenv
-`pipenv shell` crea o activa un entorno virtual con pipenv
-`exit` salir de virtual pipenv
-```
             pipenv --rm   # borra entorno virtual de pipenv
+```
 
+## instalar dependencias
 
-# INSTALAR DEPENDENCIAS # # # # # # # # # #
-
+```console
 pip freeze > requirements.txt        # crea archivo para instalar las dependencias
 
-'instalar dependencias'
+                                     # instalar dependencias
+
 pip install django                   # instala django u otras dependencias
 pip install Pillow                   # instala Pillow para manejar imágenes
             pip install django --dev # instala en desarrollo
             pip uninstall django     # desinstala django
 
-    		pip install mysqlclient  # para usar MySQL
-      		pip install psycopg2     # para usar PostgreSQL
+            pip install mysqlclient  # para usar MySQL
+            pip install psycopg2     # para usar PostgreSQL
 
-            'instalar en bloque'
+                                    # instalar en bloque
 
             pipenv install -r requirements.txt   # instala desde requirements.txt
             pipenv install                       # instala desde Pipfile
             pipenv install --ignore-pipfile      # instala desde Pipfile.lock
 
-            'extras'
-            pipenv freeze  # muestra lo que ha instalado pipenv
-            pipenv lock -r # muestra lo que necesita pipenv
-            pipenv lock    # actualiza Pipfile.lock para despliegue
-            pipenv graph   # muestra lo que necesita pipenv
-            pipenv check   # muestra las vunerabilidades, si debes actualizar
+                            # extras
+            pipenv freeze   # muestra lo que ha instalado pipenv
+            pipenv lock -r  # muestra lo que necesita pipenv
+            pipenv lock     # actualiza Pipfile.lock para despliegue
+            pipenv graph    # muestra lo que necesita pipenv
+            pipenv check    # muestra las vunerabilidades, si debes actualizar
+```
 
+## crear proyecto y app
 
-# CREAR PROYECTO y APP # # # # # # # # # #
-
-django-admin startproject demo . # crea proyecto (con un punto al final)
+```console
+django-admin startproject demo .       # crea proyecto (con un punto al final)
 python manage.py startapp website      # crea app
+```
 
-                                         # nota:
-                                         # __init__.py identifica a la carpeta que lo contiene
-                                         # como un directorio de paquetes de Python.
-            'arbol proyecto'
-            root                         # directorio raiz
-            |
-            |
-            |--manage.py                 # utilidad para manejar Django
-            |--requirements.txt          # archivo con lista de modulos necesarios
-            |--db.sqlite3                # base de datos
-            |
-            |--README.md                 # documentación
-            |--.gitignore                # archivos a ignorar por GIT
-            |
-            |--Pipfile                   # info sobre entirno virtual
-            |--Pipfile.lock              # info sobre entirno virtual
-            |
-            |--db.json                   # json con datos (de base de datos)
-            |
-            |--media                     # directorio para subir imagenes
-            |--uploads                   # directorio para subir documentos
-            |
-            |--demo       # directorio proyecto
-            |    |
-            |    |--__init__.py   # indica que este directorio sea leído
-            |    |--settings.py   # configuraciones generales
-            |    |--urls.py       # rutas de las apps
-            |    |--asgi.py       # despliege asincrono
-            |    |--wsgi.py       # conección con servidor(punto de entrada)
-            |
-            |
-            |--website               # directorio aplicación
-            |    |
-            |    |--migrations         # directorio migraciones (cambios en estructura base datos)
-            |    |    |--__init__.py
-            |    |
-            |    |--static             # directorio de archivos estáticos
-            |    |    |--website     # debe seguir la estructura: website/static/website/...
-            |    |         |--css
-            |    |         |   |--style.css
-            |    |         |
-            |    |         |--img
-            |    |         |   |--logo.svg
-            |    |         |   |--background.jpg
-            |    |         |   |--profile.png
-            |    |         |
-            |    |         |--js
-            |    |             |--script.js
-            |    |
-            |    |--templates           # directorio plantillas
-            |    |    |--website      # debe seguir la estructura: website/templates/website/...
-            |    |         |--base.html # archivo base
-            |    |         |--home.html
-            |    |         |--contact.html
-            |    |         |--about.html
-            |    |
-            |    |--templatestags       # directorio templates personalizador y filtros
-            |         |--__init__.py
-            |         |--myapp_tags.py
-            |    
-            |
-            |--NAME_APP2    # directorio aplicación 2...
-            |
-            |--NAME_APP3    # directorio aplicación 3...
-            |
-            |--NAME_APP4    # directorio aplicación 4...
-
+```
+root                         # directorio raiz
+|
+|
+|--manage.py                 # utilidad para manejar Django
+|--requirements.txt          # archivo con lista de modulos necesarios
+|--db.sqlite3                # base de datos
+|
+|--README.md                 # documentación
+|--.gitignore                # archivos a ignorar por GIT
+|
+|--Pipfile                   # info sobre entirno virtual
+|--Pipfile.lock              # info sobre entirno virtual
+|
+|--db.json                   # json con datos (de base de datos)
+|
+|--media                     # directorio para subir imagenes
+|--uploads                   # directorio para subir documentos
+|
+|--demo       # directorio proyecto
+|    |
+|    |--__init__.py   # indica que este directorio sea leído
+|    |--settings.py   # configuraciones generales
+|    |--urls.py       # rutas de las apps
+|    |--asgi.py       # despliege asincrono
+|    |--wsgi.py       # conección con servidor(punto de entrada)
+|
+|
+|--website               # directorio aplicación
+|    |
+|    |--migrations         # directorio migraciones (cambios en estructura base datos)
+|    |    |--__init__.py
+|    |
+|    |--static             # directorio de archivos estáticos
+|    |    |--website     # debe seguir la estructura: website/static/website/...
+|    |         |--css
+|    |         |   |--style.css
+|    |         |
+|    |         |--img
+|    |         |   |--logo.svg
+|    |         |   |--background.jpg
+|    |         |   |--profile.png
+|    |         |
+|    |         |--js
+|    |             |--script.js
+|    |
+|    |--templates           # directorio plantillas
+|    |    |--website      # debe seguir la estructura: website/templates/website/...
+|    |         |--base.html # archivo base
+|    |         |--home.html
+|    |         |--contact.html
+|    |         |--about.html
+|    |
+|    |--templatestags       # directorio templates personalizador y filtros
+|         |--__init__.py
+|         |--myapp_tags.py
+|    
+|
+|--NAME_APP2    # directorio aplicación 2...
+|
+|--NAME_APP3    # directorio aplicación 3...
+|
+|--NAME_APP4    # directorio aplicación 4...
+```
 
 # INTEGRAR APP, EXTENDS, TEMPLATES, STATICS, Y MATERIALIZE CSS # # # # # # # # # #
 
