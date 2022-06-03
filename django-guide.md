@@ -46,58 +46,7 @@ django-admin startproject demo .       # crea proyecto (con un punto al final)
 python manage.py startapp website      # crea app
 ```
 
-```bash
-project
-│   README.md
-│   file001.txt    
-│
-└───folder1
-│   │   file011.txt
-│   │   file012.txt
-│   │
-│   └───subfolder1
-│       │   file111.txt
-│       │   file112.txt
-│       │   ...
-│   
-└───folder2
-    │   file021.txt
-    │   file022.txt
-```
-
-
-
-```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
-
-
-```
-├── 📁src
-│   ├── 📁controller
-│   │   ├── 📄style.css
-│   ├── 📁views
-│   ├── 📁model
-│   ├── 📄index.js
-├── public
-│   ├── 📁css
-│   │   └─── 📄style.css
-│   ├── 📄images
-│   ├── 📄js
-│   ├── 📄index.html
-├── 📁dist (or build
-├── 📁node_modules
-├── 📄package.json
-├── 📄package-lock.json 
-└── 📄.gitignore
-
-
+```console
 .
 root                         # directorio raiz
 |
@@ -162,8 +111,11 @@ root                         # directorio raiz
 |
 └──NAME_APP4    # directorio aplicación 4...
 ```
-── 📄package-lock.json 
-└──
+
+
+
+
+
 # INTEGRAR APP, EXTENDS, TEMPLATES, STATICS, Y MATERIALIZE CSS # # # # # # # # # #
 
 
