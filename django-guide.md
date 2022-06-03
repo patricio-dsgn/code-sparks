@@ -114,7 +114,7 @@ root                         # directorio raiz
 
 ## Integrar app, extends, templates, statics, y materialize css
 
-**demo/settings.py**
+demo/settings.py
 
 ```python
 import os # templates
@@ -154,7 +154,7 @@ LANGUAGE_CODE = 'es-es'
 TIME_ZONE = 'America/Santiago'
 ```
 
-**demo/urls.py**
+demo/urls.py
 
 ```python
 from django.contrib import admin
@@ -170,7 +170,7 @@ urlpatterns = [
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
-**website/views.py**
+website/views.py
 
 ```python
 from django.http import HttpResponse
@@ -192,7 +192,7 @@ def contact(request):
     return render(request,'website/contact.html',{'sel':'contact'})
 ```
 
-**website/urls.py**
+website/urls.py
 
 ```python
 from django.urls import path
@@ -208,7 +208,7 @@ urlpatterns = [
 ]
 ```
 
-**website/models.py**
+website/models.py
 
 ```python
 from django.db import models
@@ -240,7 +240,7 @@ class Person(models.Model):
         verbose_name_plural = 'Personas'
 ```
 
-**website/admin.py**
+website/admin.py
 
 ```python
 from django.contrib import admin
@@ -253,7 +253,7 @@ class table_format1(admin.ModelAdmin):
 admin.site.register(Person, table_format1)
 ```
 
-**en directorio**
+en directorio
 
 ```bash
 root
@@ -301,7 +301,7 @@ website
             └──script.js                                      
 ```
 
-**en myapp_tags.py**
+en myapp_tags.py
 
 ```python
 from django import template
@@ -315,7 +315,7 @@ def split(str, key):
 
 ## Template Materialize CSS
 
-**html - base.html**
+html - base.html
 
 ```django
 {% load static %}
@@ -410,9 +410,9 @@ def split(str, key):
 </body>
 
 </html>
-````
+```
 
-**html - home.html**
+html - home.html
 
 ```django
 {% extends 'website/base.html' %}
@@ -447,7 +447,7 @@ def split(str, key):
 {% endblock %}
 ```
 
-**html - about.html**
+html - about.html
 
 ```django
 {% extends 'website/base.html' %}
@@ -514,7 +514,7 @@ def split(str, key):
 {% endblock %}
 ```
 
-**html - contact.html**
+html - contact.html
 
 ```django
 {% extends 'website/base.html' %}
@@ -613,7 +613,6 @@ def split(str, key):
 {% endblock %}
 ```
 
-
 ## migraciones y admin
 
 ```console
@@ -630,15 +629,16 @@ python manage.py runserver 8000   # levanta servidor de django
 python manage.py runserver 8001   # levanta servidor de django
 ```
 
-
 ## transferir base de datos
 
 ```console
 python manage.py dumpdata > db.json # guarda data en json
 ```
-**cambiar configuracion en settings.py**
 
-_MYSQL_
+cambiar configuracion en settings.py
+
+(MYSQL)
+
 ```python
 DATABASES = {
     'default': {
@@ -652,7 +652,8 @@ DATABASES = {
 }
 ```
 
-_POSTGRESS_
+(POSTGRESS)
+
 ```python
 DATABASES = {
     'default': {
@@ -683,7 +684,6 @@ ContentType.objects.all().delete()
 python manage.py loaddata db.json # importar datos json
 ```
 
-
 ---
 
 ## deploy Django en Heroku (11 pasos)
@@ -692,128 +692,126 @@ python manage.py loaddata db.json # importar datos json
 
 2. En Consola
 
-```python
-python manage.py dumpdata > db.json
-python manage.py loaddata db.json
+    ```python
+    python manage.py dumpdata > db.json
+    python manage.py loaddata db.json
 
-    pip install gunicorn        # gestionar las base de datos
-    pip install dj-database-url # gestionar las base de datos
-    pip install python-decouple # gestionar las variables de entornos
-    pip install whitenoise      # gestionar los archivos estáticos
+        pip install gunicorn        # gestionar las base de datos
+        pip install dj-database-url # gestionar las base de datos
+        pip install python-decouple # gestionar las variables de entornos
+        pip install whitenoise      # gestionar los archivos estáticos
 
-pip freeze > requirements.txt
-```
+    pip freeze > requirements.txt
+    ```
 
 3. En settings.py
 
-```python
-DEBUG = False
-ALLOWED_HOSTS = ['*']
+    ```python
+    DEBUG = False
+    ALLOWED_HOSTS = ['*']
 
-import dj_database_url
-from decouple import config
-DATABASES = {
-  'default': dj_database_url.config(
-      default=config('DATABASE_URL')
-  )
-}
-```
+    import dj_database_url
+    from decouple import config
+    DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+    }
+    ```
 
 4. En settings.py
 
-**En middleware agregar**
+    En middleware agregar
 
-```python
-'whitenoise.middleware.WhiteNoiseMiddleware',
-```
+    ```python
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ```
 
-**Al final**
+    Al final
 
-```python
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-```
+    ```python
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+    ```
 
 5. En settings.py
 
-```python
-import os
+    ```python
+    import os
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_URL = '/static/'
 
-# os.makedirs(STATIC_TMP, exist_ok=True)
+    # os.makedirs(STATIC_TMP, exist_ok=True)
 
-# os.makedirs(STATIC_ROOT, exist_ok=True)
+    # os.makedirs(STATIC_ROOT, exist_ok=True)
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-```
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+    ]
+    ```
 
 6. En 'urls.py'
 
-```python
-from django.conf import settings
-from django.conf.urls.static import static
+    ```python
+    from django.conf import settings
+    from django.conf.urls.static import static
 
-urlpatterns = [
-  path('admin/', admin.site.urls),
-  path('', include('website.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('website.urls')),
+    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-```
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ```
 
 7. crear
 
-```bash
-root
-|
-└──static
-    └──'.keep'
-```
+    ```bash
+    root
+    |
+    └──static
+        └──'.keep' #archico vacío
+    ```
 
-```bash
-root
-|
-└──Procfile
-```
-
-con `web: gunicorn aqui_nombre_del_proyecto.wsgi --log-file -`
+    ```bash
+    root
+    |
+    └──Procfile #archivo con:      web: gunicorn aqui_nombre_del_proyecto.wsgi --log-file
+    ```
 
 8. consola
 
-```console
-python manage.py collectstatic --noinput
-```
+    ```console
+    python manage.py collectstatic --noinput
+    ```
 
-9. eliminar Pipfile si se usa Pipenv
+9. eliminar `Pipfile` si se usa Pipenv
 
 10. subir
 
-```console
+    ```console
 
-heroku login
-heroku create nombre_de_proyecto
-heroku git:remote -a nombre_de_proyecto
-git remote -v
+    heroku login
+    heroku create nombre_de_proyecto
+    heroku git:remote -a nombre_de_proyecto
+    git remote -v
 
-heroku addons:create heroku-postgresql:hobby-dev
+    heroku addons:create heroku-postgresql:hobby-dev
 
-git init
-git add .
-git commit -m "estamos deployando, wey"
-git push heroku master
+    git init
+    git add .
+    git commit -m "estamos deployando, wey"
+    git push heroku master
 
-    heroku run python manage.py migrate
-    heroku local
-    <http://0.0.0.0:5000/>
-```
+        heroku run python manage.py migrate
+        heroku local
+        <http://0.0.0.0:5000/>
+    ```
 
 11. En consola actualizar
 
-```console
-git checkout -b master
-git branch -D master
-git push heroku master
-```
+    ```console
+    git checkout -b master
+    git branch -D master
+    git push heroku master
+    ```
