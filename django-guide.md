@@ -46,7 +46,7 @@ django-admin startproject demo .       # crea proyecto (con un punto al final)
 python manage.py startapp website      # crea app
 ```
 
-```console
+```markup
 .
 root                         # directorio raiz
 |
