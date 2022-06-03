@@ -688,32 +688,25 @@ python manage.py loaddata db.json # importar datos json
 
 ## deploy Django en Heroku (11 pasos)
 
-# 1. Instalar 'HEROKU CLI'
-<https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli>
+1. Instalar HEROKU CLI [https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli)
 
-# 2. En 'Consola'
+2. En Consola
 
+```python
 python manage.py dumpdata > db.json
 python manage.py loaddata db.json
 
-    # gestionar las base de datos
-    pip install gunicorn
-
-    # gestionar las base de datos
-    pip install dj-database-url
-
-    # gestionar las variables de entornos
-    pip install python-decouple
-
-    # gestionar los archivos estáticos      
-    pip install whitenoise
-
-#
+    pip install gunicorn        # gestionar las base de datos
+    pip install dj-database-url # gestionar las base de datos
+    pip install python-decouple # gestionar las variables de entornos
+    pip install whitenoise      # gestionar los archivos estáticos
 
 pip freeze > requirements.txt
+```
 
-# 3. En 'settings.py'
+3. En settings.py
 
+```python
 DEBUG = False
 ALLOWED_HOSTS = ['*']
 
@@ -724,15 +717,25 @@ DATABASES = {
       default=config('DATABASE_URL')
   )
 }
+```
 
-# En middleware agregar
+4. En settings.py
 
+**En middleware agregar**
+
+```python
 'whitenoise.middleware.WhiteNoiseMiddleware',
+```
 
-# Al final
+**Al final**
 
+```python
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+```
 
+5. En settings.py
+
+```python
 import os
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -745,9 +748,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+```
 
-# 6. En 'urls.py'
+6. En 'urls.py'
 
+```python
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -757,28 +762,36 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
 
-# 7. En Raíz
+7. crear
 
-# crear carpeta
+```bash
+root
+|
+└──static
+    └──'.keep'
+```
 
-'static'
+```bash
+root
+|
+└──Procfile
+```
 
-# crear dentro el archivo
+con `web: gunicorn aqui_nombre_del_proyecto.wsgi --log-file -`
 
-'.keep'
+8. consola
 
-# crear archivo 'Procfile' con
-
-web: gunicorn aqui_nombre_del_proyecto.wsgi --log-file -
-
-# 8. consola
-
+```console
 python manage.py collectstatic --noinput
+```
 
-# 10. En consola
+9. eliminar Pipfile si se usa Pipenv
 
-# eliminar Pipfile si se usa Pipenv
+10. subir
+
+```console
 
 heroku login
 heroku create nombre_de_proyecto
@@ -787,19 +800,20 @@ git remote -v
 
 heroku addons:create heroku-postgresql:hobby-dev
 
-  git init
-  git add .
-  git commit -m "estamos deployando, wey"
-
+git init
+git add .
+git commit -m "estamos deployando, wey"
 git push heroku master
 
-heroku run python manage.py migrate
+    heroku run python manage.py migrate
+    heroku local
+    <http://0.0.0.0:5000/>
+```
 
-heroku local
-<http://0.0.0.0:5000/>
+11. En consola actualizar
 
-# 11. En cosola (actualizar)
-
-git checkout -b main
+```console
+git checkout -b master
 git branch -D master
-git push heroku main
+git push heroku master
+```
