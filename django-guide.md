@@ -46,6 +46,27 @@ django-admin startproject demo .       # crea proyecto (con un punto al final)
 python manage.py startapp website      # crea app
 ```
 
+```bash
+project
+│   README.md
+│   file001.txt    
+│
+└───folder1
+│   │   file011.txt
+│   │   file012.txt
+│   │
+│   └───subfolder1
+│       │   file111.txt
+│       │   file112.txt
+│       │   ...
+│   
+└───folder2
+    │   file021.txt
+    │   file022.txt
+```
+
+
+
 ```flow
 st=>start: Start
 op=>operation: Your Operation
@@ -76,76 +97,73 @@ cond(no)->op
 ├── 📄package-lock.json 
 └── 📄.gitignore
 
-```
 
-
-
-```
 .
 root                         # directorio raiz
 |
 |
-|--manage.py                 # utilidad para manejar Django
-|--requirements.txt          # archivo con lista de modulos necesarios
-|--db.sqlite3                # base de datos
+|──manage.py                 # utilidad para manejar Django
+|──requirements.txt          # archivo con lista de modulos necesarios
+|──db.sqlite3                # base de datos
 |
-|--README.md                 # documentación
-|--.gitignore                # archivos a ignorar por GIT
+|──README.md                 # documentación
+|──.gitignore                # archivos a ignorar por GIT
 |
-|--Pipfile                   # info sobre entirno virtual
-|--Pipfile.lock              # info sobre entirno virtual
+|──Pipfile                   # info sobre entirno virtual
+|──Pipfile.lock              # info sobre entirno virtual
 |
-|--db.json                   # json con datos (de base de datos)
+|──db.json                   # json con datos (de base de datos)
 |
-|--media                     # directorio para subir imagenes
-|--uploads                   # directorio para subir documentos
+|──media                     # directorio para subir imagenes
+|──uploads                   # directorio para subir documentos
 |
-|--demo       # directorio proyecto
+|──demo       # directorio proyecto
 |    |
-|    |--__init__.py   # indica que este directorio sea leído
-|    |--settings.py   # configuraciones generales
-|    |--urls.py       # rutas de las apps
-|    |--asgi.py       # despliege asincrono
-|    |--wsgi.py       # conección con servidor(punto de entrada)
+|    |──__init__.py   # indica que este directorio sea leído
+|    |──settings.py   # configuraciones generales
+|    |──urls.py       # rutas de las apps
+|    |──asgi.py       # despliege asincrono
+|    |──wsgi.py       # conección con servidor(punto de entrada)
 |
 |
-|--website               # directorio aplicación
+|──website               # directorio aplicación
 |    |
-|    |--migrations         # directorio migraciones (cambios en estructura base datos)
-|    |    |--__init__.py
+|    |──migrations         # directorio migraciones (cambios en estructura base datos)
+|    |    |──__init__.py
 |    |
-|    |--static             # directorio de archivos estáticos
-|    |    |--website     # debe seguir la estructura: website/static/website/...
-|    |         |--css
-|    |         |   |--style.css
+|    |──static             # directorio de archivos estáticos
+|    |    |──website     # debe seguir la estructura: website/static/website/...
+|    |         |──css
+|    |         |   |──style.css
 |    |         |
-|    |         |--img
-|    |         |   |--logo.svg
-|    |         |   |--background.jpg
-|    |         |   |--profile.png
+|    |         |──img
+|    |         |   |──logo.svg
+|    |         |   |──background.jpg
+|    |         |   |──profile.png
 |    |         |
-|    |         |--js
-|    |             |--script.js
+|    |         |──js
+|    |             |──script.js
 |    |
-|    |--templates           # directorio plantillas
-|    |    |--website      # debe seguir la estructura: website/templates/website/...
-|    |         |--base.html # archivo base
-|    |         |--home.html
-|    |         |--contact.html
-|    |         |--about.html
+|    |──templates           # directorio plantillas
+|    |    |──website        # debe seguir la estructura: website/templates/website/...
+|    |         |──base.html # archivo base
+|    |         |──home.html
+|    |         |──contact.html
+|    |         |──about.html
 |    |
-|    |--templatestags       # directorio templates personalizador y filtros
-|         |--__init__.py
-|         |--myapp_tags.py
+|    |──templatestags       # directorio templates personalizador y filtros
+|         |──__init__.py
+|         |──myapp_tags.py
 |    
 |
-|--NAME_APP2    # directorio aplicación 2...
+|──NAME_APP2    # directorio aplicación 2...
 |
-|--NAME_APP3    # directorio aplicación 3...
+|──NAME_APP3    # directorio aplicación 3...
 |
-|--NAME_APP4    # directorio aplicación 4...
+└──NAME_APP4    # directorio aplicación 4...
 ```
-
+── 📄package-lock.json 
+└──
 # INTEGRAR APP, EXTENDS, TEMPLATES, STATICS, Y MATERIALIZE CSS # # # # # # # # # #
 
 
