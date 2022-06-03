@@ -2,10 +2,10 @@
 
 ## CREAR ENTORNO VIRTUAL
 
-```console
-pip3 install pipenv       # instala pipenv
-pipenv shell              # crea o activa un entorno virtual con pipenv
-exit                      # salir de virtual pipenv
+
+`pip3 install pipenv` instala pipenv
+`pipenv shell` crea o activa un entorno virtual con pipenv
+`exit` salir de virtual pipenv
 ```
             pipenv --rm   # borra entorno virtual de pipenv
 
