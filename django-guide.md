@@ -46,8 +46,8 @@ django-admin startproject demo .       # crea proyecto (con un punto al final)
 python manage.py startapp website      # crea app
 ```
 
-```markup
-.
+```bash
+
 root                         # directorio raiz
 |
 |
@@ -66,43 +66,43 @@ root                         # directorio raiz
 |──media                     # directorio para subir imagenes
 |──uploads                   # directorio para subir documentos
 |
-|──demo       # directorio proyecto
+|──demo                      # directorio proyecto
 |    |
 |    |──__init__.py   # indica que este directorio sea leído
 |    |──settings.py   # configuraciones generales
 |    |──urls.py       # rutas de las apps
 |    |──asgi.py       # despliege asincrono
-|    |──wsgi.py       # conección con servidor(punto de entrada)
+|    └──wsgi.py       # conección con servidor(punto de entrada)
 |
 |
-|──website               # directorio aplicación
+|──website                 # directorio aplicación
 |    |
 |    |──migrations         # directorio migraciones (cambios en estructura base datos)
-|    |    |──__init__.py
+|    |    └──__init__.py
 |    |
 |    |──static             # directorio de archivos estáticos
-|    |    |──website     # debe seguir la estructura: website/static/website/...
+|    |    └──website       # debe seguir la estructura: website/static/website/...
 |    |         |──css
-|    |         |   |──style.css
+|    |         |   └──style.css
 |    |         |
 |    |         |──img
 |    |         |   |──logo.svg
 |    |         |   |──background.jpg
-|    |         |   |──profile.png
+|    |         |   └──profile.png
 |    |         |
-|    |         |──js
-|    |             |──script.js
+|    |         └──js
+|    |             └──script.js
 |    |
 |    |──templates           # directorio plantillas
-|    |    |──website        # debe seguir la estructura: website/templates/website/...
+|    |    └──website        # debe seguir la estructura: website/templates/website/...
 |    |         |──base.html # archivo base
 |    |         |──home.html
 |    |         |──contact.html
-|    |         |──about.html
+|    |         └──about.html
 |    |
-|    |──templatestags       # directorio templates personalizador y filtros
+|    └──templatestags       # directorio templates personalizador y filtros
 |         |──__init__.py
-|         |──myapp_tags.py
+|         └──myapp_tags.py
 |    
 |
 |──NAME_APP2    # directorio aplicación 2...
@@ -112,16 +112,11 @@ root                         # directorio raiz
 └──NAME_APP4    # directorio aplicación 4...
 ```
 
+## Integrar app, extends, templates, statics, y materialize css
 
+**demo/settings.py**
 
-
-
-# INTEGRAR APP, EXTENDS, TEMPLATES, STATICS, Y MATERIALIZE CSS # # # # # # # # # #
-
-
-# ----- demo/settings.py -----
-
-
+```python
 import os # templates
 
 INSTALLED_APPS = [
@@ -131,35 +126,37 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-  	'website',# agregar app
+   'website',# agregar app
 ]
+```
 
+```python
 TEMPLATES = [
-	{
+ {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR,'templates')], # templates - agregar ruta
-      	'APP_DIRS': True,
-      	'OPTIONS': {
-        	'context_processors': [
-          		'django.template.context_processors.debug',
-          		'django.template.context_processors.request',
-          		'django.contrib.auth.context_processors.auth',
-          		'django.contrib.messages.context_processors.messages',
-      		],
-		},
-	},
+       'APP_DIRS': True,
+       'OPTIONS': {
+         'context_processors': [
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+        ],
+  },
+ },
 ]
+```
 
+```python
 LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'America/Santiago'
+```
 
+**demo/urls.py**
 
-
-
-
-# ----- demo/urls.py -----
-
+```python
 from django.contrib import admin
 from django.urls import path, include # templates - agregar include 
 from django.conf import settings # static
@@ -171,12 +168,11 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # static
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
 
+**website/views.py**
 
-
-
-# ----- website/views.py -----
-
+```python
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from website.models import *
@@ -194,12 +190,11 @@ def about(request):
 
 def contact(request):
     return render(request,'website/contact.html',{'sel':'contact'})
+```
 
+**website/urls.py**
 
-  
-  
-# ----- website/urls.py -----
-
+```python
 from django.urls import path
 from . import views
 #from .views import home, about, contact, hello
@@ -211,14 +206,12 @@ urlpatterns = [
   path('hello', views.hello, name='hello'),
   path('../admin/', views.hello, name='admin'),
 ]
+```
 
+**website/models.py**
 
-
-
-# ----- website/models.py -----
-
+```python
 from django.db import models
-
 
 class Person(models.Model):
     ICONS = (
@@ -245,43 +238,72 @@ class Person(models.Model):
     class Meta:
         # verbose_name = 'Person'
         verbose_name_plural = 'Personas'
+```
 
-  
+**website/admin.py**
 
-# ----- website/admin.py -----
-
+```python
 from django.contrib import admin
 from . models import *
 # from . models import Person
 
 class table_format1(admin.ModelAdmin):
-  list_display = ('title','date','number_integer')
+    list_display = ('title','date','number_integer')
 
 admin.site.register(Person, table_format1)
+```
 
+**en directorio**
 
+```bash
+root
+|
+|──media
+|
+└──uploads
+```
 
+```bash
+root
+|
+└──website
+    └──templates
+        └──website
+            |──base.html
+            |──home.html
+            |──about.html
+            └──contact.html
+```
 
-# ----- en directorio -----
-# website / templates / 
-#                      / media /
-#                      / uploads /
+```bash
+root
+|
+└──website
+    └──templatetags
+        |──__init__.py
+        └──myapp_tags.py
+```
 
+```bash
+website
+|
+└──static
+    └──website
+        |──css
+        |   └──base.css
+        |
+        |──img
+        |   |──logo.svg
+        |   |──background.jpg
+        |   └──profile.png
+        |
+        └──js
+            └──script.js                                      
+```
 
+**en myapp_tags.py**
 
-# ----- en directorio -----
-# website / templates / website /
-                                    base.html
-                                    home.html
-                                    about.html
-                                    contact.html
-# ----- en directorio -----
-# website / templatetags / 
-                           __init__.py
-						   myapp_tags.py
-
-# ----- en myapp_tags.py -----
-
+```python
 from django import template
 
 register = template.Library()
@@ -289,23 +311,13 @@ register = template.Library()
 @register.filter(name='split')
 def split(str, key):
     return str.split(key)    
-    
-    
-    
-    
-# ----- en directorio -----    
-# website / static / website /
-                                 # css /
-									   base.css
-                                 # img /
-                                       logo.svg
-  									   background.jpg
-                                       profile.png
-                                 # js /
-                                       script.js
+```
 
-'PLANTILLAS Materialize CSS'
-# ----- html - base.html -----
+## Template Materialize CSS
+
+**html - base.html**
+
+```django
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -334,7 +346,6 @@ def split(str, key):
             </ul>
         </div>
     </nav>
-
 
     <ul class="sidenav" id="mobile-demo">
         <img class="logo" src="{% static '/website/img/logo.svg' %}" alt="logo">
@@ -399,8 +410,11 @@ def split(str, key):
 </body>
 
 </html>
+````
 
-# ----- html - home.html -----
+**html - home.html**
+
+```django
 {% extends 'website/base.html' %}
 {% load static %}
 {% block title %}Home{% endblock title %}
@@ -430,11 +444,12 @@ def split(str, key):
 
 </div>
 
-
-
 {% endblock %}
+```
 
-# ----- html - about.html -----
+**html - about.html**
+
+```django
 {% extends 'website/base.html' %}
 {% load static %}
 {% block title %}about{% endblock title %}
@@ -496,11 +511,12 @@ def split(str, key):
 
 </div>
 
-
-
 {% endblock %}
+```
 
-# ----- html - contact.html -----
+**html - contact.html**
+
+```django
 {% extends 'website/base.html' %}
 {% load static %}
 {% block title %}contact{% endblock title %}
@@ -594,73 +610,89 @@ def split(str, key):
 
 </div>
 
-
-
 {% endblock %}
+```
 
 
-'MIGRACIONES Y ADMINISTRACIÓN'
+## migraciones y admin
 
+```console
 python manage.py makemigrations   # empaqueta las migraciones(si hay cambios en models.py)
 python manage.py migrate          # aplica las migraciones
 python manage.py createsuperuser  # crea superusuario (seguir instrucciones de consola)
-http://127.0.0.1:8000/admin/      # ingresar en browser
+````
 
+ingresar en browser [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
+
+```console
 python manage.py runserver        # levanta servidor de django
 python manage.py runserver 8000   # levanta servidor de django
 python manage.py runserver 8001   # levanta servidor de django
+```
 
 
+## transferir base de datos
 
-'TRASFERIR A OTRA BASA DE DATOS'
-
-
+```console
 python manage.py dumpdata > db.json # guarda data en json
+```
+**cambiar configuracion en settings.py**
 
-# cambiar configuracion en settings.py
+_MYSQL_
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql'
+        'NAME': 'name_db'
+        'USER': 'name_user'
+        'PASSWORD': 'pass'
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306'
+    }
+}
+```
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql', 
-#         'NAME': 'name_db',
-#         'USER': 'name_user',
-#         'PASSWORD': 'pass',
-#         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-#         'PORT': '3306',
-#     }
-# }
+_POSTGRESS_
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2'
+        'NAME': 'name_db'
+        'USER': 'name_user'
+        'PASSWORD': 'pass'
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '5432'
+    }
+}
+```
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-#         'NAME': 'name_db',
-#         'USER': 'name_user',
-#         'PASSWORD': 'pass',
-#         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-#         'PORT': '5432',
-#     }
-# }
-
-
+```console
 python manage.py migrate           # migrar base de datos
+```
 
+```console
 python manage.py shell             # fomatear base
+```
 
+```console
 from django.contrib.contenttypes.models import ContentType
 ContentType.objects.all().delete()
+```
 
+```console
 python manage.py loaddata db.json # importar datos json
+```
 
 
+---
 
-
-'DEPLOY DJANGO EN HEROKU (11 pasos)'
-
+## deploy Django en Heroku (11 pasos)
 
 # 1. Instalar 'HEROKU CLI'
-https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli
+<https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli>
 
 # 2. En 'Consola'
+
 python manage.py dumpdata > db.json
 python manage.py loaddata db.json
 
@@ -676,21 +708,14 @@ python manage.py loaddata db.json
     # gestionar los archivos estáticos      
     pip install whitenoise
 
+#
 
-# 
 pip freeze > requirements.txt
-
-
-
-
-
-
 
 # 3. En 'settings.py'
 
 DEBUG = False
 ALLOWED_HOSTS = ['*']
-
 
 import dj_database_url
 from decouple import config
@@ -701,15 +726,12 @@ DATABASES = {
 }
 
 # En middleware agregar
+
 'whitenoise.middleware.WhiteNoiseMiddleware',
 
 # Al final
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
-
-
-
-
 
 import os
 
@@ -717,33 +739,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # os.makedirs(STATIC_TMP, exist_ok=True)
+
 # os.makedirs(STATIC_ROOT, exist_ok=True)
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 6. En 'urls.py'
+
 from django.conf import settings
 from django.conf.urls.static import static
-
 
 urlpatterns = [
   path('admin/', admin.site.urls),
@@ -752,44 +758,23 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-
-
-
-
-
-
 # 7. En Raíz
 
 # crear carpeta
+
 'static'
 
-# crear dentro el archivo     
+# crear dentro el archivo
+
 '.keep'
 
-# crear archivo 'Procfile' con:
+# crear archivo 'Procfile' con
+
 web: gunicorn aqui_nombre_del_proyecto.wsgi --log-file -
-
-
-
-
 
 # 8. consola
 
 python manage.py collectstatic --noinput
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # 10. En consola
 
@@ -808,36 +793,13 @@ heroku addons:create heroku-postgresql:hobby-dev
 
 git push heroku master
 
-
-
-
-
 heroku run python manage.py migrate
 
-
-
-
-
-
-
-
-
-
 heroku local
-http://0.0.0.0:5000/
-
-
+<http://0.0.0.0:5000/>
 
 # 11. En cosola (actualizar)
 
 git checkout -b main
 git branch -D master
 git push heroku main
-
-
-
-
-
-
-
-
