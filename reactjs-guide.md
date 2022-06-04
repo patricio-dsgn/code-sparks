@@ -171,10 +171,6 @@ root
 | 3.1 | Class Component | **rcce** | React Class Export Component |
 | 3.2 | Class Component | **rcc** | React Class Component |
 
-
-<div style="display:flex; flex-direction: row;">
-  <div>
-  
 ```jsx
 // 1.1
 // rafce
@@ -201,12 +197,6 @@ export const Name = () => {
 };
 ```
 
-  </div>
-  <div>
-
-
-
-
 ```jsx
 // 2.1
 // rfce
@@ -232,10 +222,6 @@ export default function Name() {
   return <div>Name</div>;
 }
 ```
-
-  </div>
-  <div>
-
 
 ```jsx
 // 3.1
@@ -267,10 +253,6 @@ export default class Name extends Component {
 }
 
 ```
-  </div>
-</div>
-
-
 
 ## Rutas
 
@@ -448,4 +430,165 @@ const Logo = () => {
 };
 
 export default Logo;
+```
+
+---
+
+## HOOKS
+
+### useState
+
+Agregar un estado (1 dato)
+
+```jsx
+import React from "react";
+import { useState } from "react";
+
+const App = () => {
+
+  const [color, setColor] = useState("red");
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setColor("blue")}>
+          boton
+      </button>
+      <p>{color}</p>
+    </>
+  )
+
+};
+
+export default App;
+```
+
+Agregar un estado (1 dato con una función fuera del return )
+
+```jsx
+import React from "react";
+import { useState } from "react";
+
+const App = () => {
+
+  const [color, setColor] = useState("red");
+
+  const update = () => {
+    setColor("blue")
+  }
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={update}>
+          boton
+      </button>
+      <p>{color}</p>
+    </>
+  )
+
+};
+
+export default App;
+```
+
+Agregar un estado (1 dato con una función fuera del return + condición )
+
+```jsx
+import React from "react";
+import { useState } from "react";
+
+const App = () => {
+
+  const [color, setColor] = useState("red");
+
+  const updateColor = () => {
+    if (color === "red") {
+      setColor("blue")
+    } else {
+      setColor("red")
+    }
+  }
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={updateColor}>
+          boton
+      </button>
+      <p>{color}</p>
+    </>
+  )
+
+};
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+import React from "react";
+import { useState } from "react";
+import './App.css';
+import Image from './animacion.gif';
+```
+
+Agregar un estado (1 dato dentro de un conjunto, con una función fuera del return + condición )
+
+```jsx
+const App = () => {
+
+  // const [color, setColor] = useState("red");
+  const [photo, setPhoto] = useState({
+    height: "300px",
+    width: "300px",
+    display: "block"
+  });
+
+  const updateColor = () => {
+    if (photo.display === "none") {
+      setPhoto({
+        ...photo,
+        display: "block"
+      })
+    } else {
+      setPhoto({
+        ...photo,
+        display: "none"
+      })
+    }
+  }
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={updateColor}
+        className="red">
+        btn
+      </button>
+      <p>{photo.height}</p>
+      <p>{photo.width}</p>
+      <p>{photo.display}</p>
+      <img
+        style={{
+          height: photo.height,
+          width: photo.width,
+          display: photo.display
+        }}
+        src={Image}
+        alt="pic"/>
+    </>)
+};
+
+export default App;
 ```
