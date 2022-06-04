@@ -149,7 +149,7 @@ root
 
 ## sistema de componentes
 
-![reactjs](./img/reactjs.svg "reactjs")
+![reactjs](./img/reactjs2.svg "reactjs")
 
 ## components
 
