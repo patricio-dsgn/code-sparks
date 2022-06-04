@@ -120,7 +120,7 @@ root
     |
     |──pages
     |   |
-    |   |home
+    |   |──home
     |   |   |──home.page.jsx
     |   |   └──home.styles.scss
     |   |
