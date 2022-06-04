@@ -436,14 +436,19 @@ export default Logo;
 
 ## HOOKS
 
-- useState
-- useEffect
-- useContext
-- useRef
-- useReducer
-- useCallback
-- useMemo
-- Custom Hooks (personalizados)
+| Catégoria | Nombre | Descripción |
+| - | - | - |
+| Principales | useState | ... |
+| Principales | useEffect | ... |
+| Principales | useContext | ... |
+| - | |  |
+| Secundarios | useRef | ... |
+| Secundarios | useReducer | ... |
+| Secundarios | useCallback | ... |
+| Secundarios | useMemo | ... |
+| - | |  |
+| Personalizados | Custom Hooks | ... |
+
 
 ### useState
 
