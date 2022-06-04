@@ -2,7 +2,7 @@
 
 ## ¿cómo funciona react?
 
-![reactjs](./img/reactjs.jpg "reactjs")
+![reactjs](./img/reactjs.png "reactjs")
 
 ## instalar node
 
