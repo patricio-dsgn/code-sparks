@@ -436,6 +436,15 @@ export default Logo;
 
 ## HOOKS
 
+- useState
+- useEffect
+- useContext
+- useRef
+- useReducer
+- useCallback
+- useMemo
+- Custom Hooks (personalizados)
+
 ### useState
 
 Agregar un estado (1 dato)
@@ -582,4 +591,46 @@ const App = () => {
 };
 
 export default App;
+```
+
+### useEffect
+
+```jsx
+
+```
+
+### useContext
+
+```jsx
+
+```
+
+### useRef
+
+```jsx
+
+```
+
+### useReducer
+
+```jsx
+
+```
+
+### useCallback
+
+```jsx
+
+```
+
+### useMemo
+
+```jsx
+
+```
+
+### Custom Hooks
+
+```jsx
+
 ```
