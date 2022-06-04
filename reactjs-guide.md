@@ -119,8 +119,11 @@ root
 
     |
     |──assets
-    |   |──data listApiData.js
+    |   |──data.js
     |   └──img
+    |       |──logo.svg
+    |       |──flower.jpg
+    |       └──head.png
     |
     |──pages
     |   |
