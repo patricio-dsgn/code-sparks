@@ -2,7 +2,7 @@
 
 ## ¿cómo funciona react?
 
-![reactjs](./img/reactjs1.svg "reactjs")
+![reactjs](./img/reactjs1.png "reactjs")
 
 ## instalar node
 
@@ -110,7 +110,7 @@ root
     |──index.css
     |──index.js
     |
-    |──logo.svg
+    |──logo.png
     |──reportWebVitals.js
     |──setupTests.js
     |
@@ -149,7 +149,7 @@ root
 
 ## sistema de componentes
 
-![reactjs](./img/reactjs2.svg "reactjs")
+![reactjs](./img/reactjs2.png "reactjs")
 
 ## components
 
@@ -236,4 +236,110 @@ export default class Name extends Component {
   }
 }
 
+```
+
+## rutas
+
+En index.js
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+  <React.StrictMode>
+      <Router>
+        <App />
+      </Router>
+  </React.StrictMode>
+);
+```
+
+En App.js
+
+```jsx
+import React from 'react';
+import { Route, Switch, Redirect } from "react-router-dom";
+
+import Home from "./pages/home/home.page";
+import About from "./pages/about/about.page";
+import Contact from "./pages/contact/contact.page";
+import Error404 from "./pages/error404/error404.page";
+
+import Navbar from './components/navbar/navbar.component';
+import Footer from "./components/footer/footer.component";
+
+import './App.css';
+
+const App = () => {
+  return (
+    <>
+        <Navbar />
+
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home">{<Redirect to="/" />}</Route>
+          <Route exact path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} />
+          <Route path="*" component={Error404} />
+        </Switch>
+
+        <Footer />
+      
+    </>);
+};
+
+export default App;
+```
+
+En home.page.jsx
+
+```jsx
+import React from "react";
+
+const Home = () => {
+  return <div>Home</div>;
+};
+
+export default Home;
+```
+
+En about.page.jsx
+
+```jsx
+import React from "react";
+
+const About = () => {
+  return <div>About</div>;
+};
+
+export default About;
+```
+
+En contact.page.jsx
+
+```jsx
+import React from "react";
+
+const Contact = () => {
+  return <div>Contact</div>;
+};
+
+export default Contact;
+```
+
+En error404.page.jsx
+
+```jsx
+import React from "react";
+
+const Error404 = () => {
+  return <div>Error404</div>;
+};
+
+export default Error404;
 ```
