@@ -81,7 +81,7 @@ git push -u origin main                                   # subir
 
 ## structure
 
-```tree
+```console
 root
 |
 |──.git
