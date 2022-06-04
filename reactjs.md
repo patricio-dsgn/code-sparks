@@ -343,3 +343,75 @@ const Error404 = () => {
 
 export default Error404;
 ```
+
+## navbar
+
+Link
+
+```jsx
+import React from "react";
+import { Link } from 'react-router-dom';
+
+const Navbar = () => {
+    return (
+        <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+        </nav>
+    );
+};
+
+export default Navbar;
+```
+
+NavLink
+
+```jsx
+import React from "react";
+import { NavLink } from 'react-router-dom';
+
+const Navbar = () => {
+    return (
+        <nav>
+            <NavLink activeClassName="selected" to="/">Home</NavLink>
+            <NavLink activeClassName="selected" to="/about">About</NavLink>
+            <NavLink activeClassName="selected" to="/contact">Contact</NavLink>
+        </nav>
+    );
+};
+
+export default Navbar;
+```
+
+## CSS
+
+```jsx
+import React from "react";
+
+import "./components/button/button.styles.css";
+
+const Button = () => {
+  return <div className="btn">Button</div>;
+};
+
+export default Button;
+```
+
+## Imágenes
+
+```jsx
+import React from "react";
+import logo from "../../assets/img/logo.svg";
+import "./components/logo/logo.styles.css";
+
+const Logo = () => {
+    return (
+        <>
+            <img className="logo" src={Logo} alt="logo"/> 
+        </>
+    );
+};
+
+export default Logo;
+```
