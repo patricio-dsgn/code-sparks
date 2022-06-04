@@ -146,6 +146,11 @@ root
             |──footer.page.jsx
             └──footer.styles.scss
 ```
+
+## sistema de componentes
+
+![reactjs](./img/reactjs.svg "reactjs")
+
 ## components
 
 para crear componentes **funcionales**. (atajos)
