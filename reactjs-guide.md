@@ -160,22 +160,25 @@ root
 
 ## Tipos de Componentes
 
-para crear componentes **funcionales**. (atajos)
+|  | Tipo | Atajo | Detalle |
+| --- | --- | --- | --- |
+| 1.1 | Arrow Function Component | **rafce** | React Arrow Function Export Component |
+| 1.2 | Arrow Function Component | **rafc** | React Arrow Function Component |
+| - | | | |
+| 2.1 | Functional Component | **rfce** | React Functional Export Component |
+| 2.2 | Functional Component | **rfc** | React Functional Component |
+| - | | | |
+| 3.1 | Class Component | **rcce** | React Class Export Component |
+| 3.2 | Class Component | **rcc** | React Class Component |
 
+
+<div style="display:flex; flex-direction: row;">
+  <div>
+  
 ```jsx
-rafce      # React Arrow Function Export Component
-rafc       # React Arrow Function Component
-
-rfce       # React Functional Export Component
-rfc        # React Functional Component
-
-rcce       # React Class Export Component
-rcc        # React Class Component
-
-```
-
-```jsx
-// rafce      # React Arrow Function Export Component
+// 1.1
+// rafce
+// React Arrow Function Export Component
 
 import React from "react";
 
@@ -187,7 +190,9 @@ export default Name;
 ```
 
 ```jsx
-// rafc       # React Arrow Function Component
+// 1.2
+// rafc
+// React Arrow Function Component
 
 import React from "react";
 
@@ -196,8 +201,16 @@ export const Name = () => {
 };
 ```
 
+  </div>
+  <div>
+
+
+
+
 ```jsx
-// rfce       # React Functional Export Component
+// 2.1
+// rfce
+// React Functional Export Component
 
 import React from "react";
 
@@ -209,7 +222,9 @@ export default Name;
 ```
 
 ```jsx
-// rfc        # React Functional Component
+// 2.2
+// rfc
+// React Functional Component
 
 import React from "react";
 
@@ -218,8 +233,14 @@ export default function Name() {
 }
 ```
 
+  </div>
+  <div>
+
+
 ```jsx
-// rcce       # React Class Export Component
+// 3.1
+// rcce
+// React Class Export Component
 
 import React, { Component } from "react";
 
@@ -233,7 +254,9 @@ export default Name;
 ```
 
 ```jsx
-// rcc        # React Class Component
+// 3.2
+// rcc
+// React Class Component
 
 import React, { Component } from "react";
 
@@ -244,6 +267,10 @@ export default class Name extends Component {
 }
 
 ```
+  </div>
+</div>
+
+
 
 ## Rutas
 
