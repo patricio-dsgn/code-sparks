@@ -1,10 +1,10 @@
 # Guia React
 
-## ¿cómo funciona react?
+## ¿Cómo funciona React?
 
 ![reactjs](./img/reactjs1.png "reactjs")
 
-## instalar node
+## Instalar node
 
 instalar [https://nodejs.org/es/download/](https://nodejs.org/es/download/)
 
@@ -13,14 +13,14 @@ node -v        # verificar node
 npm -v         # verificar npm              
 ```
 
-## instalar react
+## Instalar React
 
 ```console
 npm install -g create-react-app      # instalar react de manera global
 npm view react version               # verificar react
 ```
 
-## plugings VSCode
+## Plugings VSCode
 
 1. Prettier - Code formatter
 
@@ -36,7 +36,7 @@ extras [https://medium.com/canariasjs/tips-para-mejorar-tu-desarrollo-con-react-
 
 ---
 
-## crear proyecto
+## Crear Proyecto
 
 ```console
     create-react-app nombre-proyecto    # crear desde local
@@ -47,7 +47,7 @@ npx create-react-app nombre-proyecto    # crear desde internet
 npm start                               # levantar servidor
 ```
 
-## instalar librerias
+## Instalar Librerias (dependencias)
 
 ```console
 npm i node-sass@4.13.0                                    # SASS
@@ -57,7 +57,7 @@ npm install @mui/material @emotion/react @emotion/styled  # material ui
 npm install @mui/icons-material                           # material icons
 ```
 
-## repositorio
+## Repositorio
 
 React ya inició un repo
 
@@ -79,7 +79,7 @@ git push -u origin main                                   # subir
 
 ---
 
-## structure
+## Estructura
 
 ```console
 root
@@ -114,6 +114,10 @@ root
     |──reportWebVitals.js
     |──setupTests.js
     |
+    
+    - - - - - - esto lo agregamos nosotros
+
+    |
     |──assets
     |   |──data listApiData.js
     |   └──img
@@ -147,11 +151,11 @@ root
             └──footer.styles.scss
 ```
 
-## sistema de componentes
+## Sistema de Componentes
 
 ![reactjs](./img/reactjs2.png "reactjs")
 
-## components
+## Tipos de Componentes
 
 para crear componentes **funcionales**. (atajos)
 
@@ -238,7 +242,7 @@ export default class Name extends Component {
 
 ```
 
-## rutas
+## Rutas
 
 En index.js
 
@@ -344,7 +348,7 @@ const Error404 = () => {
 export default Error404;
 ```
 
-## navbar
+## Menu - navbar
 
 Link
 
@@ -384,7 +388,7 @@ const Navbar = () => {
 export default Navbar;
 ```
 
-## CSS
+## Estilos CSS
 
 ```jsx
 import React from "react";

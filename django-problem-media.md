@@ -1,4 +1,4 @@
-# Solucion a archivos MEDIA no encontrados en Debug is False
+# Solucion a Archivos MEDIA no Encontrados en DEBUG = False
 
 nota:
 

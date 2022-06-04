@@ -1,6 +1,6 @@
 # Guia - Django
 
-## crear entorno virtual
+## Crear Entorno Virtual
 
 ```console
 pip3 install pipenv       # instala pipenv
@@ -10,7 +10,7 @@ exit                      # salir de virtual pipenv
             pipenv --rm   # borra entorno virtual de pipenv
 ```
 
-## instalar dependencias
+## Instalar Dependencias
 
 ```console
 pip freeze > requirements.txt        # crea archivo para instalar las dependencias
@@ -39,14 +39,14 @@ pip install Pillow                   # instala Pillow para manejar imágenes
             pipenv check    # muestra las vunerabilidades, si debes actualizar
 ```
 
-## crear proyecto y app
+## Crear Proyecto y App
 
 ```console
 django-admin startproject demo .       # crea proyecto (con un punto al final)
 python manage.py startapp website      # crea app
 ```
 
-```bash
+```console
 
 root                         # directorio raiz
 |
@@ -112,7 +112,7 @@ root                         # directorio raiz
 └──NAME_APP4    # directorio aplicación 4...
 ```
 
-## Integrar app, extends, templates, statics, y materialize css
+## Integrar App, Extends, Templates, Statics, y Materialize CSS
 
 demo/settings.py
 
@@ -255,7 +255,7 @@ admin.site.register(Person, table_format1)
 
 en directorio
 
-```bash
+```console
 root
 |
 |──media
@@ -263,7 +263,7 @@ root
 └──uploads
 ```
 
-```bash
+```console
 root
 |
 └──website
@@ -275,7 +275,7 @@ root
             └──contact.html
 ```
 
-```bash
+```console
 root
 |
 └──website
@@ -284,7 +284,7 @@ root
         └──myapp_tags.py
 ```
 
-```bash
+```console
 website
 |
 └──static
@@ -613,7 +613,7 @@ html - contact.html
 {% endblock %}
 ```
 
-## migraciones y admin
+## Migraciones y Administración
 
 ```console
 python manage.py makemigrations   # empaqueta las migraciones(si hay cambios en models.py)
@@ -629,7 +629,7 @@ python manage.py runserver 8000   # levanta servidor de django
 python manage.py runserver 8001   # levanta servidor de django
 ```
 
-## transferir base de datos
+## Transferir Base de Datos
 
 ```console
 python manage.py dumpdata > db.json # guarda data en json
@@ -686,7 +686,7 @@ python manage.py loaddata db.json # importar datos json
 
 ---
 
-## deploy Django en Heroku (11 pasos)
+## Deploy Django en Heroku (11 pasos)
 
 1. Instalar HEROKU CLI [https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli)
 
@@ -766,14 +766,14 @@ python manage.py loaddata db.json # importar datos json
 
 7. crear
 
-    ```bash
+    ```console
     root
     |
     └──static
         └──'.keep' #archico vacío
     ```
 
-    ```bash
+    ```console
     root
     |
     └──Procfile #archivo con:      web: gunicorn aqui_nombre_del_proyecto.wsgi --log-file
