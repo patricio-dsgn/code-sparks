@@ -81,32 +81,87 @@ git push -u origin main                                   # subir
 
 ## components
 
-<!-- 
-FUNCTIONAL
-  rafc
-  rafce
+para crear componentes **funcionales**. (atajos)
 
-  rfc
-  rfce
+```jsx
+rafce      # React Arrow Function Export Component
+rafc       # React Arrow Function Component
 
-CLASS
-	rcc
+rfce       # React Functional Export Component
+rfc        # React Functional Component
 
+rcce       # React Class Export Component
+rcc        # React Class Component
 
-  https://www.figma.com/proto/FSh26lPabyDxio3chOWzzG/react?node-id=2%3A15&scaling=contain&page-id=0%3A1
+```
 
+```jsx
+// rafce      # React Arrow Function Export Component
 
-  
-  
-  
-COMPONENTS - - - - - - - - - - - - - - - - - - -
+import React from "react";
 
-  
+const Name = () => {
+  return <div>Name</div>;
+};
 
+export default Name;
+```
 
+```jsx
+// rafc       # React Arrow Function Component
 
+import React from "react";
 
+export const Name = () => {
+  return <div>Name</div>;
+};
+```
 
+```jsx
+// rfce       # React Functional Export Component
 
+import React from "react";
 
- -->
+function Name() {
+  return <div>Name</div>;
+}
+
+export default Name;
+```
+
+```jsx
+// rfc        # React Functional Component
+
+import React from "react";
+
+export default function Name() {
+  return <div>Name</div>;
+}
+```
+
+```jsx
+// rcce       # React Class Export Component
+
+import React, { Component } from "react";
+
+export class Name extends Component {
+  render() {
+    return <div>Name</div>;
+  }
+}
+
+export default Name;
+```
+
+```jsx
+// rcc        # React Class Component
+
+import React, { Component } from "react";
+
+export default class Name extends Component {
+  render() {
+    return <div>Name</div>;
+  }
+}
+
+```
