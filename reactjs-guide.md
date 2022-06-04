@@ -526,25 +526,16 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-import React from "react";
-import { useState } from "react";
-import './App.css';
-import Image from './animacion.gif';
 ```
 
 Agregar un estado (1 dato dentro de un conjunto, con una función fuera del return + condición )
 
 ```jsx
+import React from "react";
+import { useState } from "react";
+import './App.css';
+import Image from './animacion.gif';
+
 const App = () => {
 
   // const [color, setColor] = useState("red");
