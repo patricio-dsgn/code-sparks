@@ -79,6 +79,73 @@ git push -u origin main                                   # subir
 
 ---
 
+## structure
+
+```bash
+root
+|
+|──.git
+|──.gitignore
+|
+|──package-lock.json
+|──package.json
+|
+|──README.md
+|
+|──node_modules
+|
+|──public
+|   |──favicon.ico
+|   |──index.html
+|   |──logo192.png
+|   |──logo512.png
+|   |──manifest.json
+|   └──robots.txt
+|
+└──src
+    |──App.css
+    |──App.js
+    |──App.test.js
+    |
+    |──index.css
+    |──index.js
+    |
+    |──logo.svg
+    |──reportWebVitals.js
+    |──setupTests.js
+    |
+    |──assets
+    |   |──data listApiData.js
+    |   └──img
+    |
+    |──pages
+    |   |
+    |   |home
+    |   |   |──home.page.jsx
+    |   |   └──home.styles.scss
+    |   |
+    |   |──about
+    |   |   |──about.page.jsx
+    |   |   └──about.styles.scss
+    |   |
+    |   └──contact
+    |        |──contact.page.jsx
+    |        └──contact.styles.scss
+    |
+    └──components
+        |
+        |──navbar
+        |   |──navbar.page.jsx
+        |   └──navbar.styles.scss
+        |
+        |──button
+        |   |──button.page.jsx
+        |   └──button.styles.scss
+        |
+        └──footer
+            |──footer.page.jsx
+            └──footer.styles.scss
+```
 ## components
 
 para crear componentes **funcionales**. (atajos)
