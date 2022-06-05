@@ -1,10 +1,11 @@
 # Guia React
 
-## ¿Cómo funciona React?
+## General
+### ¿Cómo funciona React?
 
 ![reactjs](./img/reactjs1.png "reactjs")
 
-## Instalar node
+### Instalar node
 
 instalar [https://nodejs.org/es/download/](https://nodejs.org/es/download/)
 
@@ -13,30 +14,29 @@ node -v        # verificar node
 npm -v         # verificar npm              
 ```
 
-## Instalar React
+### Instalar React
 
 ```console
 npm install -g create-react-app      # instalar react de manera global
 npm view react version               # verificar react
 ```
 
-## Plugings VSCode
+### Plugings VSCode
 
-1. Prettier - Code formatter
+| nº | Nombre | Descripción |
+| --- | --- | --- |
+| 1 | Prettier - Code formatter | Formateador de código |
+| 2 | ES7 React/Redux/GraphQL/React-Native snippets | Atajos para fragmentos de React |
+| 3 | Auto Import — ES6 & TS | Crea el import automáticamente en el código |
+| 4 | styled-components-snippets - Jon Wheeler | Atajos para fragmentos de Styled Components  |
+| 5 | MUI Snippets | Atajos para fragmento de Material UI |
 
-2. ES7 React/Redux/GraphQL/React-Native snippets
-
-3. Auto Import — ES6 & TS
-
-4. styled-components-snippets - Jon Wheeler
-
-5. MUI Snippets
 
 extras [https://medium.com/canariasjs/tips-para-mejorar-tu-desarrollo-con-react-y-vscode-b4a09431d8eb](https://medium.com/canariasjs/tips-para-mejorar-tu-desarrollo-con-react-y-vscode-b4a09431d8eb)
 
 ---
 
-## Crear Proyecto
+### Crear Proyecto
 
 ```console
     create-react-app nombre-proyecto    # crear desde local
@@ -47,17 +47,18 @@ npx create-react-app nombre-proyecto    # crear desde internet
 npm start                               # levantar servidor
 ```
 
-## Instalar Librerias (dependencias)
+### Instalar Librerias (dependencias)
 
-```console
-npm i node-sass@4.13.0                                    # SASS
-npm i react-router-dom@5                                  # Router DOM
-npm install --save styled-components                      # StyledComponents  
-npm install @mui/material @emotion/react @emotion/styled  # material ui
-npm install @mui/icons-material                           # material icons
-```
+| nº| Nombre            | Proporciona                                               |                                         |
+| - | ---               | ---                                                       | ---                                     |
+| 1 | SASS              | npm i node-sass@4.13.0                                    | Preprocesador de hojas de estilo, Sass. |
+| 2 | Router DOM        | npm i react-router-dom@5                                  | Creador de rutas                        |
+| 3 | StyledComponents  | npm install --save styled-components                      | Crea Componentes estilizados            |
+| 4 | material ui       | npm install @mui/material @emotion/react @emotion/styled  | Libreria CSS                            |
+| 5 | material icons    | npm install @mui/icons-material                           | Libreria de iconos                      |
 
-## Repositorio
+
+### Repositorio
 
 React ya inició un repo
 
@@ -77,9 +78,7 @@ git branch -m main                                        # cambiar nombre
 git push -u origin main                                   # subir
 ```
 
----
-
-## Estructura
+### Estructura
 
 ```console
 root
@@ -154,9 +153,59 @@ root
             └──footer.styles.scss
 ```
 
-## Sistema de Componentes
+---
+
+## Básico
+
+### Sistema de Componentes
 
 ![reactjs](./img/reactjs2.png "reactjs")
+
+## React Tutorial
+
+## React Home
+
+## React Intro
+
+## React Get Started
+
+## React ES6
+
+## React Render HTML
+
+## React JSX
+
+## React Components
+
+## React Class
+
+## React Props
+
+## React Events
+
+## React Conditionals
+
+## React Lists
+
+## React Forms
+
+## React Router
+
+## React Memo
+
+## React CSS Styling
+
+## React Sass Styling
+
+
+
+
+
+
+
+
+
+
 
 ## Tipos de Componentes
 
