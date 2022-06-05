@@ -1,131 +1,9 @@
 # Guia React
 
 ## General
-
 ### ¿Cómo funciona React?
 
 ![reactjs](./img/reactjs1.png "reactjs")
-
-### ¿Qué debo saber de JavaScript?
-
-`las nuevas caracteristicas de ES6 (ECMAScript 6)`
-
-1. Clases (Classes)
-
-    ```js
-
-    // CLASE
-    class Car {
-      constructor(name) {
-        this.brand = name;
-      }
-    }
-    const mycar = new Car("Ford");
-
-    //METODOS
-    class Car {
-      constructor(name) {
-        this.brand = name;
-      }
-      
-      present() {
-        return 'I have a ' + this.brand;
-      }
-    }
-
-    const mycar = new Car("Ford");
-    
-    mycar.present();
-
-    //HERENCIA
-    class Car {
-      constructor(name) {
-        this.brand = name;
-      }
-
-      present() {
-        return 'I have a ' + this.brand;
-      }
-    }
-
-    class Model extends Car {
-      constructor(name, mod) {
-        super(name);
-        this.model = mod;
-      }  
-      show() {
-          return this.present() + ', it is a ' + this.model
-      }
-    }
-    const mycar = new Model("Ford", "Mustang");
-    mycar.show();
-    ```
-
-2. Arrow Functions
-
-    ```js
-    hello = (val) => {
-      return "Hello World!" + val;
-    }
-    ```
-
-3. Variables
-
-    ```js
-    const Saludo = 'Hola' // constantes
-
-    let dato = 2746       // variables
-    ```
-
-4. Metodos para Array
-
-    ```js
-    const myArray = ['apple', 'banana', 'orange'];
-
-    const myList = myArray.map((item) => <p>{item}</p>)
-
-    ```
-
-5. Desestructuración
-
-    ```js
-    const vehicles = ['mustang', 'f-150', 'expedition'];
-
-    const [car, truck, suv] = vehicles;
-    ```
-
-6. Modules
-
-    ```js
-    export const name = "Jesse"
-    export const age = 40
-    ```
-
-    ```js
-    import { name, age } from "./person.js";
-    ```
-
-7. Operador Ternario (Ternary Operator)
-
-    ```js
-    if (authenticated) {
-      renderApp();
-    } else {
-      renderLogin();
-    }
-    ```
-
-    ```js
-    authenticated ? renderApp() : renderLogin();
-    ```
-
-8. Operadora de propagación (Spread Operator)
-
-    ```js
-    const numbersOne = [1, 2, 3];
-    const numbersTwo = [4, 5, 6];
-    const numbersCombined = [...numbersOne, ...numbersTwo];
-    ```
 
 ### Instalar node
 
@@ -153,6 +31,7 @@ npm view react version               # verificar react
 | 4 | styled-components-snippets - Jon Wheeler | Atajos para fragmentos de Styled Components  |
 | 5 | MUI Snippets | Atajos para fragmento de Material UI |
 
+
 extras [https://medium.com/canariasjs/tips-para-mejorar-tu-desarrollo-con-react-y-vscode-b4a09431d8eb](https://medium.com/canariasjs/tips-para-mejorar-tu-desarrollo-con-react-y-vscode-b4a09431d8eb)
 
 ---
@@ -165,11 +44,8 @@ npx create-react-app nombre-proyecto    # crear desde internet
 ```
 
 ```console
-cd nombre-proyecto                      # entrar a directorio de proyecto
 npm start                               # levantar servidor
 ```
-
-Dirección de proyecto [http://localhost:3000/](http://localhost:3000/)
 
 ### Instalar Librerias (dependencias)
 
@@ -180,6 +56,7 @@ Dirección de proyecto [http://localhost:3000/](http://localhost:3000/)
 | 3 | StyledComponents  | npm install --save styled-components                      | Crea Componentes estilizados            |
 | 4 | material ui       | npm install @mui/material @emotion/react @emotion/styled  | Libreria CSS                            |
 | 5 | material icons    | npm install @mui/icons-material                           | Libreria de iconos                      |
+
 
 ### Repositorio
 
@@ -319,6 +196,16 @@ root
 ## React CSS Styling
 
 ## React Sass Styling
+
+
+
+
+
+
+
+
+
+
 
 ## Tipos de Componentes
 
@@ -610,6 +497,7 @@ export default Logo;
 | Secundarios | useMemo | ... |
 | - | |  |
 | Personalizados | Custom Hooks | ... |
+
 
 ### useState
 
