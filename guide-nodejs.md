@@ -44,10 +44,7 @@
 
   ```
 
-## Instalación MongoDB
-
-
-
+## Crear Servidor
 
 ```console
 mkdir server1       # crea carpeta
@@ -56,10 +53,10 @@ npm init -y         # iniciar servidor
 
 code .              # abrir VSC con el directorio
 
-npm install express --save
-npm i body-parser
-npm install mongoose --save
-npm i nodemon
+npm install express --save            # renderizar del lado del servidor 
+npm i body-parser                     # permite a Express leer el crear un objeto Json
+npm install mongoose --save.          # conectar con mongoDB
+npm i nodemon                         # actualización automática de navegador
 
 ```
 
