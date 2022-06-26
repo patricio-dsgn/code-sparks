@@ -63,7 +63,7 @@ npm i nodemon                 # actualización automática de navegador
 app.js
 - importar express
 - meter todo express en app
-- crear puesto 5500
+- crear puerto 5500
 - app.get (home, solicitud y respuesta)
 - app.listen(escuchador)
 
@@ -107,3 +107,34 @@ package.json
   }
 }
 ```
+
+
+## Levantar Servidor
+
+```console
+npm run serve
+```
+
+
+## Crear Endopint
+
+app.js
+- aumentar de peso al json, por defecto viene 100kb
+- crear endpoint
+
+```js
+app.use(express.json({ limit: '50mb' }))
+
+app.post("/api/clients", (req, res) => {
+    console.log("dummy endpoint")
+    res.send("you have posted to the dummy endpoint")
+})
+```
+
+instalar [https://www.postman.com/](https://www.postman.com/) para probar endpoint enviardo:
+
+```web
+POST : http://localhost:5500/api/clients/
+```
+
+
