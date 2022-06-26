@@ -119,8 +119,12 @@ npm run serve
 ## Crear Endopint
 
 app.js
-- aumentar de peso al json, por defecto viene 100kb
+- configurar
+  - usar `app.use(express.json())` para que lo lea como json
+  - aumentar de peso al json, por defecto viene 100kb
 - crear endpoint
+  - crear console log
+  - crear respuesta
 
 ```js
 app.use(express.json({ limit: '50mb' }))
@@ -131,7 +135,7 @@ app.post("/api/clients", (req, res) => {
 })
 ```
 
-instalar [https://www.postman.com/](https://www.postman.com/) para probar endpoint enviardo:
+instalar [https://www.postman.com/](https://www.postman.com/) para probar endpoint enviando:
 
 ```web
 POST : http://localhost:5500/api/clients/
