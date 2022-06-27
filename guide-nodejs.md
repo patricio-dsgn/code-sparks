@@ -141,4 +141,12 @@ instalar [https://www.postman.com/](https://www.postman.com/) para probar endpoi
 POST : http://localhost:5500/api/clients/
 ```
 
+## Configurar Base de Datos y Conectar
+
+crear un cluster en `mongodb.com`
+
+
+
+
+
 
